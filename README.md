@@ -4,55 +4,45 @@ Play codenames on a tabletop. Utilizes [Vite](https://vitejs.dev/), docker-compo
 
 ## Running the app in docker
 
-1. Create the docker image
-   -
+1. ## Create the docker image
    ```
    npm run docker:build
    ```
-2. Start the apps
-   -
+2. ## Start the apps
    ```
    npm run docker:compose
    ```
-3. Start the database
-   -
+3. ## Start the database
    ```
    docker compose up mongodb
    ```
-4. Shutdown
-   -
+4. ## Shutdown
    ```
    npm run docker:clean
    ```
 
 ## Tools required for development
 
-1. [nvm](https://github.com/nvm-sh/nvm#install--update-script)
-   -
+1. ## [nvm](https://github.com/nvm-sh/nvm#install--update-script)
    ```
    wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
    source ~/.bashrc
    ```
-1. npm and node v16
-   -
+1. ## npm and node v16
    ```
    nvm install 16
    npm install
    ```
-1. vite
-   -
+1. ## vite
    ```
    npm i vite
    ```
-1. [docker](https://docs.docker.com/engine/install/ubuntu/)
-   -
-1. docker-compose
-   -
+1. ## [docker](https://docs.docker.com/engine/install/ubuntu/)
+1. ## docker-compose
    ```
    sudo apt install docker-compose-plugin
    ```
-1. python3 v3.11
-   -
+1. ## python3 v3.11
    ```
    sudo apt update
    sudo apt install software-properties-common
@@ -61,27 +51,23 @@ Play codenames on a tabletop. Utilizes [Vite](https://vitejs.dev/), docker-compo
    sudo apt install python3.11
    sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1
    ```
-1. [pip](https://pip.pypa.io/en/stable/installation/)
-   -
+1. ## [pip](https://pip.pypa.io/en/stable/installation/)
    ```
    python3.11 get-pip.py
    python3.11 -m pip install --upgrade --force-reinstall pip
    ```
-1. pipenv
-   -
+1. ## pipenv
    ```
    pip3.11 install --user pipenv
    ```
-1. flask
-   -
+1. ## flask
    ```
+   pip3.11 install requests
    pip3.11 install Flask
    ```
-1. nginx
-   -
+1. ## nginx
    managed through docker
-1. mongodb
-   -
+1. ## mongodb
    managed through docker
    ```
    pip3.11 install pymongo

@@ -16,6 +16,7 @@ function App() {
                     <div className='content'>
                         <Routes>
                             <Route path="/" element={<Selection />} />
+                            <Route path="/characters" element={<Character />} />
                         </Routes>
                     </div>
                 </Suspense>

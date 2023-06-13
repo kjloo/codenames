@@ -5,6 +5,7 @@ trait_list = [
     'speed'
 ]
 
+
 def create_character(name: str) -> character.Character:
     c = character.Character()
     c.name = name

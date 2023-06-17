@@ -8,6 +8,13 @@ services:
     image: creator-server:latest
     ports:
       - "5000:5000"
+    environment:
+      GAME_MODE: ${GAME_MODE}
+      IMAGE_DIR: /app/images
+    env_file:
+      - .env
+    volumes:
+      - ${IMAGE_DIR}:/app/images
   proxy:
     image: nginx:latest
     volumes: 

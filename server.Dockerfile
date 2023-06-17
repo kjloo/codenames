@@ -3,7 +3,7 @@ FROM python:3.11-slim-buster
 WORKDIR /app
 
 COPY app /app
-RUN pip3 install Flask pymongo pymodm
+RUN pip3 install Flask pymongo pymodm requests
 
 # Expose the port on which the app will be running
 EXPOSE 5000

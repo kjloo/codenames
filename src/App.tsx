@@ -3,7 +3,6 @@ import { Routes } from 'react-router'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Suspense } from 'react'
 
-const Character = lazy(() => import('./components/Character'));
 const Board = lazy(() => import('./components/Board'));
 
 function App() {
@@ -15,7 +14,6 @@ function App() {
                     <div className='content'>
                         <Routes>
                             <Route path="/" element={<Board />} />
-                            <Route path="/characters" element={<Character />} />
                         </Routes>
                     </div>
                 </Suspense>

@@ -2,6 +2,18 @@
 
 Play codenames on a tabletop. Utilizes [Vite](https://vitejs.dev/), docker-compose, [python flask](https://flask.palletsprojects.com/en/2.2.x/) with [pipenv](https://pipenv.pypa.io/en/latest/install/), [nginx](https://www.nginx.com/), and [mongodb](https://www.mongodb.com/)
 
+## Setup
+
+1. ## Setup .env
+   ```
+   cp .env.template .env
+   ```
+2. ## Settings
+   - GAME_MODE
+     Change the `GAME_MODE` between "custom" and "random". For randomly generated images from the internet, choose "random". For local images choose "custom".
+   - IMAGE_DIR
+     Specify where to pull the local custom images from.
+
 ## Running the app in docker
 
 1. ## Create the docker image

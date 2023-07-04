@@ -9,10 +9,9 @@ Play codenames on a tabletop. Utilizes [Vite](https://vitejs.dev/), docker-compo
    cp .env.template .env
    ```
 2. ## Settings
-   - GAME_MODE
-     Change the `GAME_MODE` between "custom" and "random". For randomly generated images from the internet, choose "random". For local images choose "custom".
-   - IMAGE_DIR
-     Specify where to pull the local custom images from.
+   Update the `.env` file for custom game modes.
+   - GAME_MODE: Change the `GAME_MODE` between "custom" and "random". For randomly generated images from the internet, choose "random". For local images choose "custom".
+   - IMAGE_DIR: Specify where to pull the local custom images from.
 
 ## Running the app in docker
 

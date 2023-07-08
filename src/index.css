@@ -8,7 +8,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2em;
+  margin-top: 2em;
 }
 
 /* classes */
@@ -55,7 +55,19 @@ body {
   transform: scaleY(-1);
 }
 
+.marked {
+  opacity: 50%;
+}
+
 /* ids */
+
+#marker {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  height: 1em;
+  width: 1em;
+}
 
 #root {
   display: flex;

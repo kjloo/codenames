@@ -1,21 +1,11 @@
 name: codenames
 
 services:
-  proxy:
-    image: nginx:latest
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
-    network_mode: service:server
-    depends_on:
-      - server
-      - client
-  client:
-    image: creator-client:latest
-    network_mode: service:server
-  server:
-    image: creator-server:latest
+  codenames-server:
+    container_name: codenames_server
+    image: codenames-server:latest
     ports:
-      - 9000:9000
+      - ${FLASK_PORT:-5000}:5000
     env_file:
       - .env
     environment:
@@ -23,12 +13,3 @@ services:
       IMAGE_DIR: /app/images
     volumes:
       - ${IMAGE_DIR}:/app/images
-  mongodb:
-    image: mongo:latest
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: password
-    ports:
-      - 27017:27017
-    volumes:
-      - ./data:/data/db

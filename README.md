@@ -53,7 +53,7 @@ Play codenames on a tabletop. Utilizes [Vite](https://vitejs.dev/), docker-compo
    ```
    sudo apt install docker-compose-plugin
    ```
-1. ## python3 v3.11
+1. ## python3 v3.12
    ```
    sudo apt update
    sudo apt install software-properties-common
@@ -64,24 +64,24 @@ Play codenames on a tabletop. Utilizes [Vite](https://vitejs.dev/), docker-compo
    ```
 1. ## [pip](https://pip.pypa.io/en/stable/installation/)
    ```
-   python3.11 get-pip.py
-   python3.11 -m pip install --upgrade --force-reinstall pip
+   python3.12 get-pip.py
+   python3.12 -m pip install --upgrade --force-reinstall pip
    ```
 1. ## pipenv
    ```
-   pip3.11 install --user pipenv
+   pip3.12 install --user pipenv
    ```
 1. ## flask
    ```
-   pip3.11 install requests
-   pip3.11 install Flask
+   pip3.12 install requests
+   pip3.12 install Flask
    ```
 1. ## nginx
    managed through docker
 1. ## mongodb
    managed through docker
    ```
-   pip3.11 install pymongo
+   pip3.12 install pymongo
    ```
 
 ## Run locally
@@ -105,4 +105,18 @@ pipenv shell
 
 ```
 flask run
+```
+
+### Upload Image
+
+1. Tag Image
+
+```
+docker tag codenames-server:latest tinkermonkey808/codenames-server:latest
+```
+
+2. Push to Docker Hub
+
+```
+docker push tinkermonkey808/codenames-server:latest
 ```

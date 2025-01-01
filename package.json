@@ -10,9 +10,8 @@
     "build": "tsc && vite build",
     "serve": "node /app/server.js",
     "docker:build": "npm-run-all --parallel docker:build:*",
-    "docker:build:server": "docker build . -f server.Dockerfile -t creator-server",
-    "docker:build:client": "docker build . -f client.Dockerfile -t creator-client",
-    "docker:compose": "docker compose up proxy",
+    "docker:build:server": "docker build . -f Dockerfile -t codenames-server",
+    "docker:compose": "docker compose up",
     "docker:clean": "docker compose down & docker system prune -f",
     "preview": "vite preview"
   },

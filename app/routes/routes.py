@@ -1,6 +1,6 @@
 import os
 from flask import Blueprint, send_from_directory
-from service import board_service
+from service import card_service
 
 app_routes = Blueprint('routes', __name__)
 image_dir = os.environ.get('IMAGE_DIR')
@@ -8,7 +8,7 @@ image_dir = os.environ.get('IMAGE_DIR')
 
 @app_routes.route('/api/board', methods=['GET'])
 def get_board():
-    cards = board_service.get_random_cards()
+    cards = card_service.get_random_cards()
     return {'board': cards}
 
 

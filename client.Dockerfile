@@ -16,7 +16,7 @@ RUN npm run build
 RUN npx tsc server.ts
 # === RUN ===
 # Set the env to "production"
-ENV NODE_ENV production
+ENV NODE_ENV=production
 # Expose the port on which the app will be running
 EXPOSE 3000
 # Start the app

@@ -1,7 +1,6 @@
 import os
 from flask import Blueprint, render_template, send_from_directory, jsonify
-from service import card_service
-from service import key_service
+from service import game_state_service
 
 # Blueprint for routes
 app_routes = Blueprint('routes', __name__)
@@ -10,8 +9,8 @@ image_dir = os.environ.get('IMAGE_DIR')
 
 @app_routes.route('/api/board', methods=['GET'])
 def get_board():
-    cards = card_service.get_random_cards()
-    return jsonify({'board': cards})
+    resp = game_state_service.get_game_state()
+    return resp.to_player_json()
 
 
 @app_routes.route("/api/spymaster", methods=["GET"])
@@ -19,8 +18,17 @@ def get_spymaster_key():
     """
     API endpoint to return a randomly generated 5x5 spymaster key.
     """
-    key = key_service.generate_spymaster_key()
-    return jsonify({"key": key})
+    resp = game_state_service.get_game_state()
+    return resp.to_master_json()
+
+
+@app_routes.route("/api/reset", methods=["POST"])
+def reset_board():
+    """
+    API endpoint to start a new game.
+    """
+    game_state_service.reset_game_state()
+    return jsonify({"message": "Game state reset successfully"}), 200
 
 
 @app_routes.route('/images/<path:filename>')

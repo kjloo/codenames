@@ -11,6 +11,7 @@
     "serve": "node /app/server.js",
     "docker:build": "npm-run-all --parallel docker:build:*",
     "docker:build:server": "docker build . -f Dockerfile -t codenames-server",
+    "docker:push": "docker tag codenames-server:latest tinkermonkey808/codenames-server:latest && docker push tinkermonkey808/codenames-server:latest",
     "docker:compose": "docker compose up",
     "docker:clean": "docker compose down & docker system prune -f",
     "preview": "vite preview"

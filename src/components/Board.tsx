@@ -13,7 +13,7 @@ const Board: FunctionComponent<BoardProps> = () => {
     const G_KEY = 71;
     const K_KEY = 75;
     const R_KEY = 82;
-    const [cards, setCards] = useState<string[]>([])
+    const [cards, setCards] = useState<string[]>([]);
     const [flipImage, setFlipImage] = useState(false);
     const [marker, setMarker] = useState(Color.BLANK);
 

@@ -1,5 +1,5 @@
 import os
-from flask import Blueprint, render_template, send_from_directory, jsonify
+from flask import Blueprint, render_template, send_from_directory, jsonify, request
 from service import game_state_service
 
 # Blueprint for routes
@@ -20,6 +20,17 @@ def get_spymaster_key():
     """
     resp = game_state_service.get_game_state()
     return resp.to_master_json()
+
+
+@app_routes.route("/api/guess", methods=["POST"])
+def guess():
+    """
+    API endpoint to submit a guess
+    """
+    data = request.get_json()
+    guess: int = data.get("guess")
+    resp = game_state_service.submit_guess(guess)
+    return resp.to_player_json()
 
 
 @app_routes.route("/api/reset", methods=["POST"])

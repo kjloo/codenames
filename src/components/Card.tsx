@@ -1,4 +1,6 @@
-import { FunctionComponent, useState } from 'react';
+import { FunctionComponent, useEffect, useState } from 'react';
+
+export type Role = 'Red' | 'Blue' | 'Death' | 'Neutral';
 
 export enum Color {
     BLANK = 'blank',
@@ -10,27 +12,42 @@ export enum Color {
 
 interface CardProps {
     url: string
-    flipped: boolean
-    color: Color
+    role: Role | null
+    flipped?: boolean
 }
 
-export const Card: FunctionComponent<CardProps> = ({ url, flipped, color }) => {
+export const Card: FunctionComponent<CardProps> = ({ url, role, flipped = false }) => {
 
-    const [mark, setMark] = useState(Color.BLANK);
+    const [color, setColor] = useState(Color.BLANK);
 
-    const handleClick = () => {
-        setMark(color);
+    useEffect(() => {
+        setColor(getColorByRole(role));
+    }, [role]);
+
+    const getColorByRole = (role: Role | null): Color => {
+        switch (role) {
+            case "Red":
+                return Color.RED;
+            case "Blue":
+                return Color.BLUE;
+            case "Neutral":
+                return Color.GREY;
+            case "Death":
+                return Color.BLACK;
+            default:
+                return Color.BLANK;
+        }
     };
 
     const cardMarkClass = (): string => {
-        return mark !== Color.BLANK ? 'marked' : ''
+        return role ? 'marked' : ''
     }
 
     const cardMarkStyle = (): React.CSSProperties => {
-        return mark !== Color.BLANK ? { backgroundColor: mark } : {}
+        return role ? { backgroundColor: color } : {}
     }
 
-    return <div className={`card ${cardMarkClass()}`} onClick={handleClick} style={cardMarkStyle()} >
+    return <div className={`card ${cardMarkClass()}`} style={cardMarkStyle()} >
         <img src={url} className={flipped ? 'flipped-image' : ''} alt="Image" />
     </div>;
 }
